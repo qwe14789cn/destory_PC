@@ -17,9 +17,12 @@ import time
 命令如下：
 
 pyinstaller -w --onefile --icon="ctfmon_0000.ico" main.py
+
 完成后会生成main.exe 请修改成ctfmon.exe
 
-win7激活.bat 需要管理员权限运行，自动将ctfmon.exe复制到win系统启动项
+win7激活.bat 需要管理员权限运行
+
+自动将ctfmon.exe复制到win系统启动项
 
 开机启动
 
