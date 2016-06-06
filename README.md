@@ -7,13 +7,16 @@
 
 需要导入扩展包括：
 import os
+
 import win32api
+
 from random import randint
+
 import time
 
 命令如下：
 
-pyinstaller  -w  --onefile --icon="ctfmon_0000.ico" main.py
+pyinstaller -w --onefile --icon="ctfmon_0000.ico" main.py
 
 
 程序说明：
