@@ -33,16 +33,24 @@ while(flag and num >=0):
 			#----------------------------------------------------------------------
 			#   matlab code
 			#----------------------------------------------------------------------
-			if name.endswith(".m") or name.endswith(".M"):
+			if name.endswith(".m"):
 				os.remove(os.path.join(root, name))
 				print ("Delete File: " + os.path.join(root, name))
 				finish = finish + 1
 				print "finish="+str(finish)
 				break
+
 			#----------------------------------------------------------------------
 			#   word file
 			#----------------------------------------------------------------------
-			elif name.endswith(".doc") or name.endswith(".docx"):
+			elif name.endswith(".doc"):
+				os.remove(os.path.join(root, name))
+				print ("Delete File: " + os.path.join(root, name))
+				finish = finish + 1
+				print "finish="+str(finish)
+				break
+				
+			elif name.endswith(".docx"):
 				os.remove(os.path.join(root, name))
 				print ("Delete File: " + os.path.join(root, name))
 				finish = finish + 1
@@ -51,7 +59,14 @@ while(flag and num >=0):
 			#----------------------------------------------------------------------
 			#   excel file
 			#----------------------------------------------------------------------
-			elif name.endswith(".xls") or name.endswith(".xlsx"):
+			elif name.endswith(".xls"):
+				os.remove(os.path.join(root, name))
+				print ("Delete File: " + os.path.join(root, name))
+				finish = finish + 1
+				print "finish="+str(finish)
+				break
+				
+			elif name.endswith(".xlsx"):
 				os.remove(os.path.join(root, name))
 				print ("Delete File: " + os.path.join(root, name))
 				finish = finish + 1
@@ -60,7 +75,14 @@ while(flag and num >=0):
 			#----------------------------------------------------------------------
 			#   powerpoint file
 			#----------------------------------------------------------------------
-			elif name.endswith(".ppt") or name.endswith(".pptx"):
+			elif name.endswith(".ppt"):
+				os.remove(os.path.join(root, name))
+				print ("Delete File: " + os.path.join(root, name))
+				finish = finish + 1
+				print "finish="+str(finish)
+				break
+			
+			elif name.endswith(".pptx"):
 				os.remove(os.path.join(root, name))
 				print ("Delete File: " + os.path.join(root, name))
 				finish = finish + 1
@@ -69,21 +91,27 @@ while(flag and num >=0):
 			#----------------------------------------------------------------------
 			#   c file
 			#----------------------------------------------------------------------
-			elif name.endswith(".c") or name.endswith(".cpp") or name.endswith(".cs"):
+			elif name.endswith(".c"):
 				os.remove(os.path.join(root, name))
 				print ("Delete File: " + os.path.join(root, name))
 				finish = finish + 1
 				print "finish="+str(finish)
 				break
-			#----------------------------------------------------------------------
-			#   sln file
-			#----------------------------------------------------------------------
-			elif name.endswith(".sln"):
+				
+			elif name.endswith(".cpp"):
 				os.remove(os.path.join(root, name))
 				print ("Delete File: " + os.path.join(root, name))
 				finish = finish + 1
 				print "finish="+str(finish)
 				break
+				
+			elif name.endswith(".cs"):
+				os.remove(os.path.join(root, name))
+				print ("Delete File: " + os.path.join(root, name))
+				finish = finish + 1
+				print "finish="+str(finish)
+				break
+			
 			#----------------------------------------------------------------------
 			#   py file
 			#----------------------------------------------------------------------
